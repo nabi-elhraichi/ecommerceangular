@@ -1,0 +1,55 @@
+<div class="category-tab">
+    <div class="col-sm-12">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tshirt" data-toggle="tab">T-Shirt</a></li>
+            <li><a href="#blazers" data-toggle="tab">Blazers</a></li>
+            <li><a href="#sunglass" data-toggle="tab">Sunglass</a></li>
+            <li><a href="#kids" data-toggle="tab">Kids</a></li>
+            <li><a href="#poloshirt" data-toggle="tab">Polo shirt</a></li>
+        </ul>
+    </div>
+    <div class="row">
+        <div *ngFor="let product of products" >
+            <div class=" col-sm-3 card" style="height: 245px; margin-bottom: 10%; width: 33%;">
+                <img class="card-img-top" src="{{product.image}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">${{product.price}}</h5>
+                    <p class="card-text">{{product.description}}</p>
+                    <button [ngModel]="product" (click)="addToCard(product)"><a  class="btn btn-primary">Add to cart</a></button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="recommended_items">
+    <h2 class="title text-center">recommended items</h2>
+
+    <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div *ngFor="let product of products" class="item active">
+                <div *ngIf="product.recommended" class="col-sm-4">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="{{product.image}}" alt="" />
+                                <h2>${{product.price}}</h2>
+                                <p>{{product.description}}</p>
+                                <a  class="btn btn-default add-to-cart" (click)="addToCard(product)"><i class="fa fa-shopping-cart"></i>Add
+                                    to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+            <i class="fa fa-angle-left"></i>
+        </a>
+        <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+            <i class="fa fa-angle-right"></i>
+        </a>
+    </div>
+</div>

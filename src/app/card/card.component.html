@@ -1,0 +1,26 @@
+<div class="container my-5">
+    <div class="my-5">
+        <h2>Your Cart</h2>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr *ngFor="let card of cards">
+                <th scope="row">{{ card.desciption }}</th>
+                <td>{{ card.id }}</td>
+                <td>
+                    {{ card.quantity }}
+                </td>
+                <td>${{ card.price }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
